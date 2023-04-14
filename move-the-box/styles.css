@@ -1,0 +1,49 @@
+body {
+    height: 100vh;
+}
+
+.main-div {
+    background-color: aquamarine;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.lane {
+    background-color: black;
+    height:30%;
+    width: 100%;
+    position: absolute;
+    top: 50vh;   
+}
+
+#box{
+    transition: all 1s
+}
+
+.box-left{
+    height:90%;
+    width: 12%;
+    background-color: red;
+    /* padding: 1px; */
+    margin: 10px;
+    position: absolute;
+    left:5vw;
+}
+
+.box-right {
+    height: 90%;
+    width: 12%;
+    background-color: blue;
+    /* padding: 1px; */
+    margin: 10px;
+    position: absolute;
+    left: 75vw;
+}
+
+.button{
+    position:absolute;
+    top: 90vh;
+    left: 45vw;
+    height: 30px;
+}
