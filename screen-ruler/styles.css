@@ -1,0 +1,22 @@
+body {
+    height: 100vh;
+}
+
+.main-div {
+    background-color: darkcyan;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.ruler{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color: beige;
+    height: 30%;
+    width: 100%;
+    position: absolute;
+    top: 50vh;
+}
+
