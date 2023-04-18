@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #77dd77;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#circle {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    border: 2px solid rgb(246, 4, 4);
+    z-index: -1;
+}
+
+#filledCircle{
+    background-color: rgba(191, 7, 7, 0.373);
+    height: 33px;
+    width: 33px;
+    border-radius: 50%;
+    transform: translate(3%, 3%);
+    z-index: -1;
+}
+
+#smallCircle{
+    position:absolute;
+    background-color: rgba(240, 16, 16, 0.994);
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+}
+
+#text{
+    z-index: 0;
+}

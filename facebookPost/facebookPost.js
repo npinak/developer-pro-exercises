@@ -200,10 +200,6 @@ for (let i =0; i < facebookPost.comments.length; i++){
             replyLikeDelete.appendChild(replyLikeDeleteText)
             replyLikeDelete.setAttribute('class', 'replyMedia')
 
-            // let likeDeleteText = document.createElement('h6')
-            // likeDeleteText.textContent = `Like Delete`
-            // likeSection.appendChild(likeDeleteText)
-            // likeSection.setAttribute('class', 'media')
         }
     }
 
