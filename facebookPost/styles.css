@@ -1,0 +1,139 @@
+body{
+    height: 100vh;
+}
+
+#app{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+#mainPost{
+    display: grid;
+    grid-template-rows: 0.3fr 1fr 0.3fr 2fr;
+    background-color: rgb(48, 44, 44);
+    height: 78vh;
+    width: 30vw;
+}
+
+#profileDiv{
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+#profilePicDiv{
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 50%;
+}
+
+#profilePicDiv img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+#mainTextDiv{
+    display: grid;
+    grid-template-rows: 0.9fr 0.1fr;
+    border-bottom: 1px solid;
+    border-bottom-color: rgba(240, 255, 255, 0.169);
+}
+
+#textDiv{
+    display:flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 20px;
+    color: white;
+}
+
+#viewsDiv{
+    display:flex;
+    color: white;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+#likeDiv{
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.mediaButton{
+    border: none;
+    color:antiquewhite;
+    background-color: rgb(48, 44, 44);
+}
+
+#commentDiv{
+    display: grid;
+    grid-template-rows: 0.7fr 0.3fr;
+}
+
+.profilePicDiv {
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 50%;
+}
+
+.profilePicDiv img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.profileDiv {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.comment{
+    padding-top: 0px;
+    padding-left:  50px;
+    color: white;
+    position:relative;
+    top:-40px;
+}
+
+.media{
+    color: white;
+    position: relative;
+    top: -60px;
+    left: 50px
+}
+
+.reply{
+    display: grid;
+    grid-template-rows: 0.3fr 0.5fr 0.2fr;
+    position: relative;
+    color: white;
+    top: -90px;
+    left: 40px;
+}
+
+.replyText{
+    top: -40px;
+    left: 51px;
+    position: relative;
+
+}
+
+.replyMedia{
+    top: -80px;
+    left: 51px; 
+    position: relative;
+}
+
+#comment1{
+    top: -200px;
+    left: 2px;
+    position: relative;
+}
