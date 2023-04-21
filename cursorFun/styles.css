@@ -18,7 +18,37 @@ body {
     z-index: -1;
 }
 
-#filledCircle{
+
+@keyframes cursorAnim2 {
+    from {
+        transform: scale(1.3) translate(-40%, -40%);
+    }
+
+    to {
+        transform: scale(1) translate(-50%, -50%);
+    }
+}
+
+.normal{
+    /* transition: all 1s; */
+    animation: cursorAnim2 .5s forwards;
+}
+
+@keyframes cursorAnim3{
+    from{ 
+        transform: scale(1) translate(-50%, -50%);
+    }
+    to {
+        transform: scale(1.3) translate(-40%, -40%);
+    }
+}
+
+.expand{
+    animation: cursorAnim3 .5s forwards;
+}
+
+
+#filledCircle {
     background-color: rgba(191, 7, 7, 0.373);
     height: 33px;
     width: 33px;
@@ -27,8 +57,8 @@ body {
     z-index: -1;
 }
 
-#smallCircle{
-    position:absolute;
+#smallCircle {
+    position: absolute;
     background-color: rgba(240, 16, 16, 0.994);
     height: 20px;
     width: 20px;
@@ -37,6 +67,6 @@ body {
     transform: translate(-50%, -50%);
 }
 
-#text{
+#text {
     z-index: 0;
 }

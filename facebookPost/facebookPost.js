@@ -53,160 +53,132 @@ let mainPost = document.createElement('div')
 mainPost.setAttribute('id','mainPost')
 app.appendChild(mainPost)
 
+function createElement({type, className, id, src, textContent, innerHTML, appendTo}) {
+    const element = document.createElement(type)
+
+    if (className){
+        element.setAttribute('class', className)
+    }
+
+    if(id){
+        element.setAttribute('id',id)
+    }
+
+    if(src){
+        element.src = src
+    }
+
+    if(textContent){
+        element.textContent = textContent
+    }
+
+    if(innerHTML){
+        element.innerHTML = innerHTML
+    }
+
+    if(appendTo){
+        appendTo.appendChild(element)
+    }
+
+    return element
+}
+
 //profileDiv elements
-let profileDiv = document.createElement('div')
-profileDiv.setAttribute('id', 'profileDiv')
-mainPost.appendChild(profileDiv)
+const profileDiv = createElement({type:'div', id:'profileDiv', appendTo: mainPost})
 
-let profilePicDiv = document.createElement('div')
-profilePicDiv.setAttribute('id', 'profilePicDiv')
-profileDiv.appendChild(profilePicDiv)
+const profilePicDiv = createElement({ type: 'div', id: 'profilePicDiv', appendTo: profileDiv })
 
-let mainProfilePic = document.createElement('img')
-mainProfilePic.src = facebookPost.user.profilePicture
-profilePicDiv.appendChild(mainProfilePic)
+const mainProfilePic = createElement({ type: 'img', src: facebookPost.user.profilePicture, appendTo: profilePicDiv})
 
-let mainPosterName = document.createElement('h4')
-mainPosterName.textContent = `${facebookPost.user.firstName} ${facebookPost.user.lastName}`
-profileDiv.appendChild(mainPosterName)
+const mainPosterName = createElement({ type: 'h4', textContent: `${facebookPost.user.firstName} ${facebookPost.user.lastName}`, appendTo: profileDiv})
 
 // Main text elements
-let mainTextDiv = document.createElement('div')
-mainTextDiv.setAttribute('id', 'mainTextDiv')
-mainPost.appendChild(mainTextDiv)
+const mainTextDiv = createElement({ type: 'div', id: 'mainTextDiv', appendTo: mainPost})
 
-let textDiv = document.createElement('div')
-textDiv.setAttribute('id', 'textDiv')
-mainTextDiv.appendChild(textDiv)
-let mainPostText = document.createElement('h5')
-mainPostText.textContent = `${facebookPost.text}`
-textDiv.appendChild(mainPostText)
+const textDiv = createElement({ type: 'div', id: 'textDiv', appendTo: mainTextDiv })
+const mainPostText = createElement({ type: 'h5', textContent: `${facebookPost.text}`, appendTo: textDiv})
 
-let viewsDiv = document.createElement('div')
-viewsDiv.setAttribute('id', 'viewsDiv')
-mainTextDiv.appendChild(viewsDiv)
-let viewsText = document.createElement('h5')
-viewsText.textContent = `${facebookPost.views} Views`
-viewsDiv.appendChild(viewsText)
+const viewsDiv = createElement({ type: 'div', id: 'viewsDiv', appendTo: mainTextDiv })
+const viewsText = createElement({ type: 'h5', textContent: `${facebookPost.views} Views`, appendTo: viewsDiv})
 
-let viewsBorderDiv = document.createElement('div')
-viewsBorderDiv.setAttribute('id', 'viewsBorderDiv')
-viewsDiv.appendChild(viewsBorderDiv)
+const viewsBorderDiv = createElement({ type: 'div', id: 'viewsBorderDiv', appendTo: viewsDiv })
 
 // Share, like, comment elements
-let likeDiv = document.createElement('div')
-likeDiv.setAttribute('id', 'likeDiv')
-mainPost.appendChild(likeDiv)
+const likeDiv = createElement({ type: 'div', id: 'likeDiv', appendTo: mainPost})
 
-let likeButton = document.createElement('button')
-likeButton.setAttribute('class', 'mediaButton')
-likeButton.innerHTML = "Like"
-likeDiv.appendChild(likeButton)
+const likebutton = createElement({ type: 'button', className: 'mediaButton', innerHTML: 'Like', appendTo: likeDiv })
 
-let commentButton = document.createElement('button')
-commentButton.setAttribute('class', 'mediaButton')
-commentButton.innerHTML = "Comment"
-likeDiv.appendChild(commentButton)
+const commentButton = createElement({ type: 'button', className: 'mediaButton', innerHTML: 'Comment', appendTo: likeDiv })
 
-let shareButton = document.createElement('button')
-shareButton.setAttribute('class', 'mediaButton')
-shareButton.innerHTML = 'Share'
-likeDiv.appendChild(shareButton)
-
+const shareButton = createElement({ type: 'button', className: 'mediaButton', innerHTML: 'Share', appendTo: likeDiv })
 
 // comments section
-let commentDiv = document.createElement('div')
-commentDiv.setAttribute('id', 'commentDiv')
-mainPost.appendChild(commentDiv)
+const commentDiv = createElement({ type: 'div', id: 'commentDiv', appendTo: mainPost})
 
 for (let i =0; i < facebookPost.comments.length; i++){
     
     //create 3 sections for profile, main text, and like/delete button
-    const div = document.createElement('div')
-    div.setAttribute('id', `comment${i}`)
-    commentDiv.appendChild(div)
-    const profileSection = document.createElement('div')
-    const textSection = document.createElement('div')
-    const likeSection = document.createElement('div')
+    const div = createElement({type: 'div', id:`comments${i}`, appendTo: commentDiv})
 
-    div.appendChild(profileSection)
-    div.appendChild(textSection)
-    div.appendChild(likeSection)
+    const profileSection = createElement({ type: 'div', className: 'profileDiv', appendTo: div })
+
+    const textSection = createElement({ type: 'div', className: 'comment', appendTo: div })
+
+    const likeSection = createElement({ type: 'div', className: 'media', appendTo: div })
+
 
     // add elements for the profile section
-    const profilePicDiv = document.createElement('div')
-    profileSection.appendChild(profilePicDiv)
-    profileSection.setAttribute('class', 'profileDiv')
-    const profilePic = document.createElement('img')
-    profilePic.src = facebookPost.comments[i].user.profilePicture
-    profilePicDiv.appendChild(profilePic)
-    profilePicDiv.setAttribute('class','profilePicDiv')
-    const profileName = document.createElement('h6')
-    profileName.textContent = `${facebookPost.comments[i].user.firstName} ${facebookPost.comments[i].user.lastName}`
-    profileSection.appendChild(profileName)
+    const profilePicDiv = createElement({ type: 'div', className: 'profilePicDiv', appendTo: profileSection })
+
+    const profilePic = createElement({ type: 'img', src: facebookPost.comments[i].user.profilePicture, appendTo: profilePicDiv })
+
+    const profileName = createElement({ type: 'h6', 
+    textContent: `${facebookPost.comments[i].user.firstName} ${facebookPost.comments[i].user.lastName}`, 
+    appendTo: profileSection })
 
     // add elements for the text section
-    const commentText = document.createElement('h6')
-    commentText.textContent = `${facebookPost.comments[i].text}`
-    textSection.appendChild(commentText)
-    textSection.setAttribute('class', 'comment')
+    const commentText = createElement({
+        type: 'h6', textContent: `${facebookPost.comments[i].text}`, 
+        appendTo: textSection })
+
 
     //add elements for like and delete button
-    let likeDeleteText = document.createElement('h6')
-    likeDeleteText.textContent = `Like Delete`
-    likeSection.appendChild(likeDeleteText)
-    likeSection.setAttribute('class', 'media')
+    const likeDeleteText = createElement({ type: 'h6', textContent: 'Like Delete', appendTo: likeSection })
 
     // add replies
     if (facebookPost.comments[i].replies.length > 0){
-        console.log('replies here!')
 
         for (let i = 0; i < facebookPost.comments[i].replies.length; i++){
-            const replyDiv = document.createElement('div')
-            div.appendChild(replyDiv)
-            // replyDiv.setAttribute('class', 'reply')
-            replyDiv.setAttribute('id', `reply${i}`)
-            replyDiv.setAttribute('class', `reply`)
+
+            const replyDiv = createElement({ type: 'div', id: `reply${i}`, className: 'reply', appendTo: div })
 
             //create profile, main text, and like/delete divs for replies
-            const replyProfile = document.createElement('div')
-            const replyText = document.createElement('div')
-            const replyLikeDelete = document.createElement('div')
-            replyDiv.appendChild(replyProfile)
-            replyDiv.appendChild(replyText)
-            replyDiv.appendChild(replyLikeDelete)
+            const replyProfile = createElement({ type: 'div', className: 'profileDiv', appendTo: replyDiv })
+
+            const replyText = createElement({ type: 'div', className: 'replyText', appendTo: replyDiv })
+
+            const replyLikeDelete = createElement({ type: 'div', className: 'replyMedia', appendTo: replyDiv })
 
             // add elements for the reply profile section
-            const replyProfilePicDiv = document.createElement('div')
-            replyProfile.appendChild(replyProfilePicDiv)
-            replyProfile.setAttribute('class', 'profileDiv')
-            const replyProfilePic = document.createElement('img')
-            replyProfilePic.src = facebookPost.comments[i].replies[i].user.profilePicture
-            replyProfilePicDiv.appendChild(replyProfilePic)
-            replyProfilePicDiv.setAttribute('class', 'profilePicDiv')
-            const replyProfileName = document.createElement('h6')
-            replyProfileName.textContent = `${facebookPost.comments[i].replies[i].user.firstName} ${facebookPost.comments[i].replies[i].user.lastName}`
-            replyProfile.appendChild(replyProfileName)
+            const replyProfilePicDiv = createElement({ type: 'div', className: 'profilePicDiv', appendTo: replyProfile })
+
+            const replyProfilePic = createElement({ type: 'img', src: facebookPost.comments[i].replies[i].user.profilePicture, 
+            appendTo: replyProfilePicDiv })
+
+            const replyProfileName = createElement({ type: 'h6', 
+                textContent: `${facebookPost.comments[i].replies[i].user.firstName} ${facebookPost.comments[i].replies[i].user.lastName}`, 
+                appendTo: replyProfile })
 
             // add elements to the reply text section
-            const replyString = document.createElement('h6')
-            replyString.textContent = `${facebookPost.comments[i].replies[i].text}`
-            replyText.appendChild(replyString)
-            replyText.setAttribute('class', `replyText`)
+            const replyString = createElement({ type: 'h6', textContent: `${facebookPost.comments[i].replies[i].text}`, 
+            appendTo: replyText })
 
             // add elements to the reply like/delete section
-            let replyLikeDeleteText = document.createElement('h6')
-            replyLikeDeleteText.textContent = `Like Delete`
-            replyLikeDelete.appendChild(replyLikeDeleteText)
-            replyLikeDelete.setAttribute('class', 'replyMedia')
+            const replyLikeDeleteText = createElement({ type: 'h6', textContent: 'Like Delete', appendTo: replyLikeDelete})
 
         }
     }
-
 }
-
-
-
 
 // Comment button hide and show 
 
